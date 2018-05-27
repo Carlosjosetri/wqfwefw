@@ -6,10 +6,7 @@
 package calculadoralabo1;
 import calculadoralabo.Artmetica.Aritmetica;
 import Convertor.convertor;
-/**
- *
- * @author LN710Q
- */
+
 public interface AbstractFactory {
     Aritmetica getAritmetica(String operacion);
     convertor getConvertor (String  conversion);

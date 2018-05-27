@@ -9,6 +9,11 @@ package calculadoralabo.Artmetica;
  *
  * @author LN710Q
  */
-public interface Aritmetica {
-    public float result(float val,float val2);
+public class resta implements Aritmetica {
+    
+   
+    @Override
+    public float result(float val,float val2){
+        return val-val2;
+    }
 }

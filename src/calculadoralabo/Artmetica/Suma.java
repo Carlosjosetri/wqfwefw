@@ -11,9 +11,9 @@ package calculadoralabo.Artmetica;
  */
 public class Suma implements Aritmetica {
     
-    int result;
+    
     @Override
-    public void result(){
-        
+    public float result(float val,float val2){
+        return val+val2;
     }
 }

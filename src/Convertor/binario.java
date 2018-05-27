@@ -3,12 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package calculadoralabo.Artmetica;
+package Convertor;
+
+import Convertor.convertor;
 
 /**
  *
  * @author LN710Q
  */
-public interface Aritmetica {
-    public float result(float val,float val2);
+public class binario implements convertor {
+    
+    
+    @Override
+    public float result(float val){
+        return val;
+    }
 }

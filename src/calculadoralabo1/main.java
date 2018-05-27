@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package calculadoralabo.Artmetica;
+package calculadoralabo1;
 
 /**
  *
- * @author LN710Q
+ * @author CARLOS
  */
-public interface Aritmetica {
-    public float result(float val,float val2);
+public class main {
+    
 }
