@@ -10,5 +10,5 @@ package calculadoralabo.Artmetica;
  * @author LN710Q
  */
 public interface Aritmetica {
-    public float result(float val,float val2);
+    public int result(int val,int val2);
 }

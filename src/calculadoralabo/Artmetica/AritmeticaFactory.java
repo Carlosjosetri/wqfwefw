@@ -22,6 +22,15 @@ public class AritmeticaFactory implements AbstractFactory{
             case "Suma":
                 return new Suma();
            
+            case "Resta":
+                return new resta();
+           
+            case "Division":
+                return new division();
+           
+            case "Multiplicacion":
+                return new multiplicacion();
+           
         }
         return null;
     }

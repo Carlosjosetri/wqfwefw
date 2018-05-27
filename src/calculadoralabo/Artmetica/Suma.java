@@ -13,7 +13,7 @@ public class Suma implements Aritmetica {
     
     
     @Override
-    public float result(float val,float val2){
+    public int result(int val,int val2){
         return val+val2;
     }
 }
