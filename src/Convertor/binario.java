@@ -15,7 +15,13 @@ public class binario implements convertor {
     
     
     @Override
-    public float result(float val){
-        return val;
+    public double result(double val){
+       double[] decimal2 = {val};
+        double binario2 = 0;
+        for(int n = 0; n < decimal2.length; n++) {
+            binario2 = decimal2[n] % 2;
+        }
+        
+        return binario2;
     }
 }

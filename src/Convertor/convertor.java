@@ -10,6 +10,6 @@ package Convertor;
  * @author LN710Q
  */
 public interface convertor {
-       public float result(float val);
+       public double result(double val);
 }
 
