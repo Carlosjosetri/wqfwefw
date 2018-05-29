@@ -23,9 +23,9 @@ import calculadoralabo1.factoryproducer;
 public class VentanaConversion extends JFrame implements ActionListener {
 
     private int widthBT = 100, heightBT = 30;
-    private JLabel valor1, valor2, resultado, signos;           // etiqueta o texto no editable
-    private JTextField caja, caja2, caja3;        // caja de texto, para insertar datos
-    JButton Botonsuma, Botonresta, Botonmultiplicacion, Botondivision;          // boton con una determinada accion
+    private JLabel valor1,  resultado;           // etiqueta o texto no editable
+    private JTextField caja, caja3;        // caja de texto, para insertar datos
+    JButton BotonBinario, BotonDecimal;          // boton con una determinada accion
 
     public VentanaConversion() {
         super();                    // usamos el contructor de la clase padre JFrame
@@ -45,90 +45,65 @@ public class VentanaConversion extends JFrame implements ActionListener {
     private void inicializarComponentes() {
         // creamos los componentes
         valor1 = new JLabel();
-        valor2 = new JLabel();
-        signos = new JLabel();
+        
+        
         resultado = new JLabel();
         AbstractFactory factory;
-        factory =  factoryproducer.getFactory("aritmetica");
+        factory =  factoryproducer.getFactory("convertir");
         caja = new JTextField();
-        caja2 = new JTextField();
+       
         caja3 = new JTextField();
-        Botonsuma = new JButton("Suma");
-        Botonresta = new JButton("Resta");
-        Botonmultiplicacion = new JButton("Multiplicacion");
-        Botondivision = new JButton("Division");
-        valor1.setText("Valor 1");
-        valor2.setText("valor 2");
-        signos.setText("+,-,*,/");
-        resultado.setText("resultado");
+        BotonBinario = new JButton("Binario");
+        BotonDecimal = new JButton("decimal");
+       
+        valor1.setText("convertir");
+        
+        
+        resultado.setText("convertido");
 
         // configuramos los componentes
         // colocamos posicion y tamanio a la caja (x, y, ancho, alto)
-        Botonsuma.setBounds(50, 125, widthBT, heightBT);
-        Botonresta.setBounds(50, 40, widthBT, heightBT);
-        Botonmultiplicacion.setBounds(200, 125, widthBT, heightBT);
-        Botondivision.setBounds(200, 40, widthBT, heightBT);
-        valor1.setBounds(50, 180, 100, 25);
-        caja.setBounds(50, 200, 100, 25);
-        caja3.setBounds(130, 270, 100, 25);
-        resultado.setBounds(130, 250, 100, 25);
-        signos.setBounds(160, 200, 100, 25);
-        caja2.setBounds(200, 200, 100, 25);
-        valor2.setBounds(200, 180, 100, 25);
+        BotonBinario.setBounds(160, 40, widthBT, heightBT);
+        BotonDecimal.setBounds(50, 40, widthBT, heightBT);
+        
+        valor1.setBounds(50, 100, 100, 25);
+        caja.setBounds(50, 120, 100, 25);
+        caja3.setBounds(160, 120, 100, 25);
+        resultado.setBounds(160, 100, 100, 25);
+        
+        
+        
         // hacemos que el boton tenga una accion y esa accion estara en esta clase
         // adicionamos los componentes a la ventana
-           Botonsuma.addActionListener(new ActionListener(){
+          BotonBinario.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                Aritmetica sumita = factory.getAritmetica("Suma");
-                
-                caja3.setText(String.valueOf(sumita.result(Integer.parseInt(caja.getText()), Integer.parseInt(caja2.getText()))));
+                convertor hola = factory.getConvertor("binario");
+                caja3.setText(String.valueOf(hola.result(Double.parseDouble(caja.getText()))));
+               
             }
         });
-           Botonsuma.addActionListener(new ActionListener(){
+          BotonDecimal.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                Aritmetica sumita = factory.getAritmetica("Suma");
+                convertor sumita = factory.getConvertor("decimal");
+                caja3.setText(String.valueOf(sumita.result(Double.parseDouble(caja.getText()))));
                 
-                caja3.setText(String.valueOf(sumita.result(Integer.parseInt(caja.getText()), Integer.parseInt(caja2.getText()))));
+               
             }
         });
-           Botonresta.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Aritmetica sumita = factory.getAritmetica("Resta");
-                
-                caja3.setText(String.valueOf(sumita.result(Integer.parseInt(caja.getText()), Integer.parseInt(caja2.getText()))));
-            }
-        });
-           Botonmultiplicacion.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Aritmetica sumita = factory.getAritmetica("Multiplicacion");
-                
-                caja3.setText(String.valueOf(sumita.result(Integer.parseInt(caja.getText()), Integer.parseInt(caja2.getText()))));
-            }
-        });
-           Botondivision.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Aritmetica sumita = factory.getAritmetica("Division");
-                
-                caja3.setText(String.valueOf(sumita.result(Integer.parseInt(caja.getText()), Integer.parseInt(caja2.getText()))));
-            }
-        });
+      
 
-        this.add(Botonsuma);
-        this.add(Botonresta);
-        this.add(Botonmultiplicacion);
-        this.add(Botondivision);
+        this.add(BotonBinario);
+        this.add(BotonDecimal);
+       
         this.add(caja);
-        this.add(caja2);
+        
         this.add(caja3);
         this.add(valor1);
-        this.add(valor2);
+        
         this.add(resultado);
-        this.add(signos);
+        
     }
 
     @Override
@@ -136,8 +111,5 @@ public class VentanaConversion extends JFrame implements ActionListener {
         // mostramos un mensaje (frame, mensaje)
     }
 
-    public static void main(String[] args) {
-        Ventana V = new Ventana();      // creamos una ventana
-        V.setVisible(true);             // hacemos visible la ventana creada
-    }
+   
 }
